@@ -54,7 +54,7 @@ Explore more of my work, thoughts, and personal brand:
 - **Instagram (Updates / Visuals):** [https://www.instagram.com/themistamyke/]  
 - **YouTube (Tutorials / Demos):** [https://www.youtube.com/@TheMistaMyke]    
 - **Medium (Blog / Writeups):** [https://medium.com/@indigoshieldtech]  
-- **Facebook / Other socials:** [facebook.com/TheMistaMyke]  
+- **Facebook / Other socials:** [https://www.facebook.com/TheMistaMyke]  
 
 - **Professional GitHub Portfolio:** [link]  
 - **Personal Website (once live):** [link]  
