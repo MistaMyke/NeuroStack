@@ -56,7 +56,7 @@ Explore more of my work, thoughts, and personal brand:
 - **Medium (Blog / Writeups):** [https://medium.com/@indigoshieldtech]  
 - **Facebook / Other socials:** [https://www.facebook.com/TheMistaMyke]  
 
-- **Professional GitHub Portfolio:** [link]  
+- **Professional GitHub Portfolio:** [https://github.com/Mhermann716]  
 - **Personal Website (once live):** [link]  
 
 ---
