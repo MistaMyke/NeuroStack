@@ -1,0 +1,30 @@
+# Node / Frontend
+node_modules/
+dist/
+.env
+*.log
+npm-debug.log*
+
+# Python / Backend
+__pycache__/
+*.py[cod]
+env/
+venv/
+*.env
+
+# Docker
+docker-compose.override.yml
+*.dockerignore
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# OS / Misc
+.DS_Store
+Thumbs.db
+
+# Build / Deployment
+build/
+out/
+
