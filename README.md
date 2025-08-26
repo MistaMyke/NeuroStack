@@ -21,14 +21,13 @@ This repository serves both as a **portfolio for potential employers or clients*
 ---
 
 ## Projects
-All projects live under `/projects` and are documented individually:
+All projects live under `/projects` and are documented individually. This section will expand as NeuroStack grows.
 
 | Project | Description | Status |
 |---------|-------------|--------|
-| **Portfolio Site** | React-based personal portfolio showcasing projects and skills | In progress |
-| **Notes App** | Full stack CRUD app with authentication & Postgres backend | Planned |
-| **AI Chatbot** | GPT/Hugging Face integration for Q&A and knowledge retrieval | Planned |
-| **Additional AI Tools** | Future experiments and full stack applications leveraging AI | Planned |
+| **Portfolio Site** | React-based personal portfolio showcasing skills, projects, and journey | In progress |
+| **Client Site & Portal** | Full stack site with user portal, AI-powered chat, and features relevant for professional services (e.g., CPA-like tools) | Planned |
+| **Upcoming / Experimental** | Placeholder for future projects, teasing advanced AI integrations and full stack experimentation | Upcoming |
 
 ---
 
@@ -48,10 +47,17 @@ All projects live under `/projects` and are documented individually:
 
 ---
 
-## Contact / Links
-- [MistaMyke Social / Brand](https://link-to-your-socials)  
-- [Professional GitHub Portfolio](https://link-to-professional-github)  
-- [Personal Website (once live)](https://link-to-website)
+## Links & Social
+Explore more of my work, thoughts, and personal brand:
+
+- **Substack (Articles / Notes):** [https://substack.com/@mistamyke?utm_source=user-menu]  
+- **Instagram (Updates / Visuals):** [https://www.instagram.com/themistamyke/]  
+- **YouTube (Tutorials / Demos):** [https://www.youtube.com/@TheMistaMyke]    
+- **Medium (Blog / Writeups):** [https://medium.com/@indigoshieldtech]  
+- **Facebook / Other socials:** [facebook.com/TheMistaMyke]  
+
+- **Professional GitHub Portfolio:** [link]  
+- **Personal Website (once live):** [link]  
 
 ---
 
