@@ -1,42 +1,164 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
+/* src/App.css */
+
+/* Reset and base styles */
+* {
+  box-sizing: border-box; /* Makes padding/borders count inside width/height */
+}
+
+.App {
+  font-family: Arial, sans-serif;
+  font-size: 16px; /* Readable base font size */
+  color: #333;
+  margin: 0;
+  min-height: 100vh; /* Full viewport height */
+}
+
+/* Banner styling - Using fixed positioning for better UX */
+.banner {
+  position: fixed; /* Stays at top when scrolling */
+  top: 0;
+  left: 0;
+  right: 0; /* Full width instead of centered 50% */
+  height: 70px; /* Fixed height - no conflicting padding */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #1a1a1a;
+  color: white;
+  padding: 0 2rem; /* Only horizontal padding */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Subtle shadow */
+  z-index: 100; /* Stay above other content */
+}
+
+.banner-left h1 {
+  margin: 0;
+  font-size: 1.5rem; /* Proportional to base font */
+  font-weight: 600; /* Slightly lighter than default bold */
+}
+
+.banner-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Profile image - improved styling */
+.profile-pic {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #fff; /* Nice white border */
+  transition: transform 0.2s ease; /* Smooth hover effect */
+}
+
+.profile-pic:hover {
+  transform: scale(1.1); /* Slight grow on hover */
+}
+
+/* Dropdown - improved UX */
+.dropdown {
+  position: relative;
+}
+
+.dropbtn {
+  background-color: #333;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 4px; /* Rounded corners */
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.2s ease;
+}
+
+.dropbtn:hover {
+  background-color: #555; /* Hover state */
+}
+
+.dropbtn:focus {
+  outline: 2px solid #4A90E2; /* Accessibility focus ring */
+  outline-offset: 2px;
+}
+
+.dropdown-content {
+  position: absolute;
+  top: calc(100% + 8px); /* 8px gap below button */
+  right: 0;
+  background-color: white;
+  color: #333;
+  min-width: 175px;
+  border-radius: 8px; /* More modern rounded corners */
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15); /* Better shadow */
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* Clean rounded corners */
+  border: 1px solid #e0e0e0; /* Subtle border */
+}
+
+.dropdown-content a {
+  padding: 0.8rem 1rem;
+  text-decoration: none;
+  color: #333;
+  transition: background-color 0.2s ease;
+  font-size: 0.9rem;
+}
+
+.dropdown-content a:hover {
+  background-color: #f8f9fa;
+  color: #1a1a1a;
+}
+
+.dropdown-content a:focus {
+  background-color: #e3f2fd;
+  outline: none;
+}
+
+/* Main content - account for fixed header */
+main {
+  margin-top: 70px; /* Same as banner height */
   padding: 2rem;
-  text-align: center;
+  max-width: 1200px; /* Reasonable max width */
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+main h2 {
+  color: #1adbdb;
+  margin-bottom: 1rem;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+main p {
+  line-height: 1.6; /* Better readability */
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  color: #f5b2f2;
+  font-style italic;
+}
+
+/* Responsive design - mobile friendly */
+@media (max-width: 768px) {
+  .banner {
+    padding: 0 1rem; /* Less padding on mobile */
+    height: 60px; /* Slightly smaller on mobile */
   }
-  to {
-    transform: rotate(360deg);
+  
+  .banner-left h1 {
+    font-size: 1.2rem; /* Smaller title on mobile */
   }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+  
+  .profile-pic {
+    width: 35px;
+    height: 35px;
   }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+  
+  .dropdown-content {
+    min-width: 150px; /* Narrower dropdown on mobile */
+  }
+  
+  main {
+    margin-top: 60px; /* Match mobile banner height */
+    padding: 1rem; /* Less padding on mobile */
+  }
 }

@@ -1,21 +1,22 @@
-# Use official Node.js LTS
-FROM node:22-bullseye
 
-# Set working directory
+# Use Node.js
+FROM node:20-alpine
+
+# Set working dir
 WORKDIR /app
 
-# Copy package.json + package-lock.json
+# Copy package.json and lock file first
 COPY package*.json ./
 
-# Install dependencies
+# Install deps
 RUN npm install
 
-# Copy the rest of your project
+# Copy rest of project
 COPY . .
 
-# Expose port for Vite dev server
+# Expose Vite’s port
 EXPOSE 5173
 
-# Start the dev server using npx and bind to all interfaces
-CMD ["npx", "vite", "dev", "--host"]
+# Run dev server
+CMD ["npm", "run", "dev"]
 
