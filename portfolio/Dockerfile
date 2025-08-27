@@ -1,10 +1,10 @@
-# Use Node 22 LTS base image
+# Use official Node.js LTS
 FROM node:22-bullseye
 
-# Set working directory inside the container
+# Set working directory
 WORKDIR /app
 
-# Copy package.json and package-lock.json (or pnpm-lock.yaml if using pnpm)
+# Copy package.json + package-lock.json
 COPY package*.json ./
 
 # Install dependencies
@@ -13,9 +13,9 @@ RUN npm install
 # Copy the rest of your project
 COPY . .
 
-# Expose Vite dev server port
+# Expose port for Vite dev server
 EXPOSE 5173
 
-# Start the dev server
-CMD ["npm", "run", "dev"]
+# Start the dev server using npx and bind to all interfaces
+CMD ["npx", "vite", "dev", "--host"]
 

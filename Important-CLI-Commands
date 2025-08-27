@@ -1,0 +1,7 @@
+// Run docker for portfolio host //
+
+docker run -it -p 5173:5173 \
+  -v $(pwd):/app \
+  -v neurostack_node_modules:/app/node_modules \
+  neurostack-portfolio
+
