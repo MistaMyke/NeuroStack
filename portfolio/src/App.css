@@ -30,16 +30,28 @@
   z-index: 100; /* Stay above other content */
 }
 
-.banner-left h1 {
+.banner-left {
+  display: flex;
+  align-items: center;
+}
+
+.banner-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1; /* Takes up remaining space */
+}
+
+.banner-center h1 {
   margin: 0;
-  font-size: 1.5rem; /* Proportional to base font */
-  font-weight: 600; /* Slightly lighter than default bold */
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-align: center;
 }
 
 .banner-right {
   display: flex;
   align-items: center;
-  gap: 1rem;
 }
 
 /* Profile image - improved styling */
@@ -62,18 +74,18 @@
 }
 
 .dropbtn {
-  background-color: #333;
+  background-color: #d07fe6;
   color: white;
-  border: none;
+  border:#4A90E2 ;
   padding: 0.6rem 1.2rem;
   border-radius: 4px; /* Rounded corners */
   cursor: pointer;
-  font-size: 0.9rem;
-  transition: background-color 0.2s ease;
+  font-size: 1.1rem;
+  transition: background-color 0.7s ease;
 }
 
 .dropbtn:hover {
-  background-color: #555; /* Hover state */
+  background-color: #80e1d1; /* Hover state */
 }
 
 .dropbtn:focus {
@@ -117,6 +129,7 @@
 
 /* Main content - account for fixed header */
 main {
+/*  text-align: center; */
   margin-top: 70px; /* Same as banner height */
   padding: 2rem;
   max-width: 1200px; /* Reasonable max width */
@@ -125,16 +138,15 @@ main {
 }
 
 main h2 {
-  color: #1adbdb;
+  color: #b13cb9;
   margin-bottom: 1rem;
 }
 
 main p {
   line-height: 1.6; /* Better readability */
   margin-bottom: 1rem;
-  font-size: 0.9rem;
-  color: #f5b2f2;
-  font-style italic;
+  color:#80e1d1;
+/*  text-indent: 2em; */
 }
 
 /* Responsive design - mobile friendly */
@@ -158,7 +170,37 @@ main p {
   }
   
   main {
+    text-align: center;
     margin-top: 60px; /* Match mobile banner height */
     padding: 1rem; /* Less padding on mobile */
   }
+}
+.contact-section {
+  text-align: center;
+  padding: 3rem 1rem;
+  background-color: #1a1a1a;
+  color: #333;
+}
+
+.contact-section h2 {
+  margin-bottom: 1rem;
+  font-size: 2rem;
+}
+
+.contact-links {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.contact-links a {
+  text-decoration: none;
+  color: #1a1a1a;
+  font-weight: bold;
+}
+
+.contact-links a:hover {
+  color: #0077cc;
 }
