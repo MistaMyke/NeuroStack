@@ -1,62 +1,87 @@
+/* This is the root element of the document. Global CSS variables and default styles are defined here. */
 :root {
+  /* Sets the default font family for the entire application. */
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  /* Sets the default line height for better readability. */
   line-height: 1.5;
+  /* Sets the default font weight. */
   font-weight: 400;
 
+  /* Defines the color schemes that the application supports (light and dark). */
   color-scheme: light dark;
+  /* Sets the default text color for dark mode. */
   color: rgba(255, 255, 255, 0.87);
+  /* Sets the default background color for dark mode. */
   background-color: #242424;
 
+  /* Disables font synthesis, which can sometimes lead to less accurate font rendering. */
   font-synthesis: none;
+  /* Optimizes text rendering for legibility. */
   text-rendering: optimizeLegibility;
+  /* Enables anti-aliasing for smoother font rendering on WebKit browsers. */
   -webkit-font-smoothing: antialiased;
+  /* Enables anti-aliasing for smoother font rendering on Mozilla browsers. */
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Default styles for anchor (link) tags. */
 a {
   font-weight: 500;
   color: #646cff;
+  /* The text decoration (like underline) is inherited from the parent element. */
   text-decoration: inherit;
 }
+/* Styles for anchor tags when hovered over. */
 a:hover {
   color: #535bf2;
 }
 
+/* Styles for the body of the document. */
 body {
+  /* Removes the default margin from the body. */
   margin: 0;
-  display: flex;
-  place-items: center;
+  /* Sets a minimum width for the application. */
   min-width: 320px;
+  /* Ensures the body takes up at least the full height of the viewport. */
   min-height: 100vh;
 }
 
+/* Default styles for h1 headings. */
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
 }
 
+/* Default styles for buttons. */
 button {
   border-radius: 8px;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
   font-size: 1em;
   font-weight: 500;
+  /* The font family is inherited from a parent element. */
   font-family: inherit;
   background-color: #1a1a1a;
   cursor: pointer;
+  /* Adds a smooth transition effect to the border color. */
   transition: border-color 0.25s;
 }
+/* Styles for buttons when hovered over. */
 button:hover {
   border-color: #646cff;
 }
+/* Styles for buttons when they are focused. */
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+/* This media query applies styles when the user's system is set to a light color scheme. */
 @media (prefers-color-scheme: light) {
   :root {
+    /* Overrides the default text color for light mode. */
     color: #213547;
+    /* Overrides the default background color for light mode. */
     background-color: #ffffff;
   }
   a:hover {

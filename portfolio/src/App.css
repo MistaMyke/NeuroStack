@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lora:wght@400;700&display=swap');
+
 /* src/App.css */
 
 /* Reset and base styles */
@@ -6,11 +8,12 @@
 }
 
 .App {
-  font-family: Arial, sans-serif;
-  font-size: 16px; /* Readable base font size */
+  font-family: 'Lora', serif;
+  font-size: 2rem; /* Readable base font size */
   color: #333;
   margin: 0;
   min-height: 100vh; /* Full viewport height */
+  background-color: #12182B; /* Dark blue charcoal background */
 }
 
 /* Banner styling - Using fixed positioning for better UX */
@@ -23,7 +26,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #1a1a1a;
+  background-color: #1B2238; /* Slightly lighter blue charcoal */
   color: white;
   padding: 0 2rem; /* Only horizontal padding */
   box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Subtle shadow */
@@ -74,9 +77,9 @@
 }
 
 .dropbtn {
-  background-color: #d07fe6;
+  background-color: #9B5DE5; /* Rich purple */
   color: white;
-  border:#4A90E2 ;
+  border: none;
   padding: 0.6rem 1.2rem;
   border-radius: 4px; /* Rounded corners */
   cursor: pointer;
@@ -85,11 +88,11 @@
 }
 
 .dropbtn:hover {
-  background-color: #80e1d1; /* Hover state */
+  background-color: #F15BB5; /* Bright magenta */
 }
 
 .dropbtn:focus {
-  outline: 2px solid #4A90E2; /* Accessibility focus ring */
+  outline: 2px solid #00F5D4; /* Teal focus ring */
   outline-offset: 2px;
 }
 
@@ -97,8 +100,8 @@
   position: absolute;
   top: calc(100% + 8px); /* 8px gap below button */
   right: 0;
-  background-color: white;
-  color: #333;
+  background-color: #1B2238;
+  color: #E0E0E0;
   min-width: 175px;
   border-radius: 8px; /* More modern rounded corners */
   box-shadow: 0 8px 24px rgba(0,0,0,0.15); /* Better shadow */
@@ -106,48 +109,127 @@
   display: flex;
   flex-direction: column;
   overflow: hidden; /* Clean rounded corners */
-  border: 1px solid #e0e0e0; /* Subtle border */
+  border: 1px solid #00F5D4; /* Subtle border */
 }
 
 .dropdown-content a {
   padding: 0.8rem 1rem;
   text-decoration: none;
-  color: #333;
+  color: #E0E0E0;
   transition: background-color 0.2s ease;
   font-size: 0.9rem;
 }
 
 .dropdown-content a:hover {
-  background-color: #f8f9fa;
-  color: #1a1a1a;
+  background-color: #9B5DE5;
+  color: white;
 }
 
 .dropdown-content a:focus {
-  background-color: #e3f2fd;
+  background-color: #12182B;
   outline: none;
 }
 
 /* Main content - account for fixed header */
 main {
-/*  text-align: center; */
-  margin-top: 70px; /* Same as banner height */
+  margin: 70px auto 0;
   padding: 2rem;
-  max-width: 1200px; /* Reasonable max width */
-  margin-left: auto;
-  margin-right: auto;
+  max-width: 1600px;
 }
 
 main h2 {
-  color: #b13cb9;
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #00F5D4; /* Vibrant teal */
   margin-bottom: 1rem;
+  text-align: center;
 }
 
 main p {
-  line-height: 1.6; /* Better readability */
+  font-size: 1.2rem;
+  font-weight: 400;
+  line-height: 1.7;
+  color: #E0E0E0; /* Soft white */
   margin-bottom: 1rem;
-  color:#80e1d1;
-/*  text-indent: 2em; */
 }
+
+/* Projects Grid */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.project-card {
+  position: relative;
+  aspect-ratio: 1 / 1; /* Creates a square */
+  background-color: #1B2238; /* Slightly lighter blue charcoal */
+  border-radius: 15px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.project-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+  z-index: 10;
+}
+
+.project-card-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  padding: 1.5rem;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0) 100%);
+  color: white;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.project-card:hover .project-card-content {
+  opacity: 1;
+}
+
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://via.placeholder.com/300'); /* Placeholder image */
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.project-card:hover::before {
+  opacity: 0.5;
+}
+
+.project-card-content h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.5rem;
+}
+
+.project-card-content p {
+  margin: 0;
+  font-size: 1rem;
+  color: #ccc;
+}
+
 
 /* Responsive design - mobile friendly */
 @media (max-width: 768px) {
@@ -174,33 +256,42 @@ main p {
     margin-top: 60px; /* Match mobile banner height */
     padding: 1rem; /* Less padding on mobile */
   }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
 }
 .contact-section {
   text-align: center;
   padding: 3rem 1rem;
-  background-color: #1a1a1a;
-  color: #333;
+  background-color: #1B2238; /* Slightly lighter blue charcoal */
+  color: #E0E0E0; /* Lighter text color for better contrast */
 }
 
 .contact-section h2 {
+  color: #00F5D4; /* Vibrant teal */
   margin-bottom: 1rem;
   font-size: 2rem;
 }
 
-.contact-links {
-  list-style: none;
-  padding: 0;
+.social-icons {
   display: flex;
   justify-content: center;
-  gap: 2rem;
+  gap: 1.5rem;
+  margin-top: 2rem;
 }
 
-.contact-links a {
-  text-decoration: none;
-  color: #1a1a1a;
-  font-weight: bold;
+.social-icon-link {
+  color: #8D99AE; /* Mid-tone gray */
+  transition: color 0.3s ease, transform 0.3s ease;
 }
 
-.contact-links a:hover {
-  color: #0077cc;
+.social-icon-link:hover {
+  color: #00F5D4; /* Vibrant teal */
+  transform: scale(1.2);
+}
+
+.social-icon-link svg {
+  width: 32px;
+  height: 32px;
 }
