@@ -34,11 +34,6 @@ const InstagramIcon = () => (
   </svg>
 );
 
-const DiscordIcon = () => (
-  <svg fill="currentColor" width="24" height="24" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg"><path d="M216.856 41.912c-11.34-4.864-23.312-8.544-35.856-10.944c-3.936-1.056-8.016.336-10.152 3.84a120.81 120.81 0 0 0-20.112 30.192c-28.344-5.52-57.168-5.52-85.536 0A121.44 121.44 0 0 0 45.1 34.816c-2.136-3.504-6.216-4.896-10.152-3.84C22.44 33.368 10.464 37.048-.88 41.912c-1.848.792-3.12 2.52-3.36 4.488c-.24 1.968.888 3.864 2.688 4.92C18.056 61.448 30.344 76.352 40 89.816c-2.4 2.64-4.656 5.424-6.72 8.328c-2.28 3.168-2.28 7.368.048 10.536c15.36 20.928 33.216 38.88 53.28 53.424c3.168 2.28 7.368 2.28 10.536.048c2.88-2.064 5.664-4.32 8.304-6.72c13.464 9.656 28.368 21.944 38.52 31.536c1.056 1.8 2.952 2.88 4.92 2.688c1.968-.24 3.696-1.512 4.488-3.36c5.232-12.24 9.216-24.936 11.856-37.92c1.056-3.936-.336-8.016-3.84-10.152a121.44 121.44 0 0 0-30.192-20.112c5.52-28.344 5.52-57.168 0-85.536a120.81 120.81 0 0 0 20.112-30.192c2.136-3.504 1.728-7.92-1.056-10.944Z"/><path fill="#FFF" d="M128 176.208c-26.4 0-47.808-21.384-47.808-47.808c0-26.4 21.408-47.808 47.808-47.808s47.808 21.408 47.808 47.808c0 26.424-21.408 47.808-47.808 47.808Zm-31.872-47.808c0 17.592 14.28 31.872 31.872 31.872s31.872-14.28 31.872-31.872s-14.28-31.872-31.872-31.872s-31.872 14.28-31.872 31.872Z"/></svg>
-);
-
-
 // The main App component.
 function App() {
   // State to manage the visibility of the dropdown menu.
@@ -49,11 +44,10 @@ function App() {
   // Social media links data
   const socialLinks = [
     { name: 'Email', href: 'mailto:your-TheMistaMyke@proton.me', icon: <EmailIcon /> },
-    { name: 'LinkedIn', href: '#', icon: <LinkedInIcon /> },
-    { name: 'GitHub', href: '#', icon: <GitHubIcon /> },
-    { name: 'Telegram', href: '#', icon: <TelegramIcon /> },
-    { name: 'Instagram', href: '#', icon: <InstagramIcon /> },
-    { name: 'Discord', href: '#', icon: <DiscordIcon /> },
+    { name: 'LinkedIn', href: 'https://www.linkedin.com/in/michael-hermann-cs/', icon: <LinkedInIcon /> },
+    { name: 'GitHub', href: 'https://github.com/MistaMyke', icon: <GitHubIcon /> },
+    { name: 'Telegram', href: 'https://t.me/TheMistaMyke', icon: <TelegramIcon /> },
+    { name: 'Instagram', href: 'https://www.instagram.com/themistamyke/', icon: <InstagramIcon /> },
   ];
 
   // This effect handles closing the dropdown when a click occurs outside of it.
