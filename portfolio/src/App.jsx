@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from 'react';
 import './App.css';
 // Import the profile picture image.
-import profilePic from './assets/react.svg';
+import profilePic from './assets/MistaMyke.png';
 
 // SVG Icon Components
 const EmailIcon = () => (
@@ -34,6 +34,10 @@ const InstagramIcon = () => (
   </svg>
 );
 
+
+
+
+
 // The main App component.
 function App() {
   // State to manage the visibility of the dropdown menu.
@@ -48,6 +52,9 @@ function App() {
     { name: 'GitHub', href: 'https://github.com/MistaMyke', icon: <GitHubIcon /> },
     { name: 'Telegram', href: 'https://t.me/TheMistaMyke', icon: <TelegramIcon /> },
     { name: 'Instagram', href: 'https://www.instagram.com/themistamyke/', icon: <InstagramIcon /> },
+    { name: 'Linktree', href: 'https://linktr.ee/TheMistaMyke' },
+    
+    // { name: 'Podcast', href: 'YOUR_PODCAST_LINK_HERE', icon: <PodcastIcon /> }, // Uncomment when ready
   ];
 
   // This effect handles closing the dropdown when a click occurs outside of it.
@@ -110,7 +117,7 @@ function App() {
           {/* Profile Image */}
           <img 
             src={profilePic} 
-            alt="Profile picture of TheMistaMykes" 
+            alt="MistaMyke profile picture" 
             className="profile-pic" 
           />
         </div>
@@ -199,16 +206,30 @@ function App() {
           <h2>Contact Me</h2>
           <p>If you’d like to reach out, feel free to connect with me through any of the platforms below:</p>
           <div className="social-icons">
-            {socialLinks.map(link => (
-              <a 
-                key={link.name} 
-                href={link.href} 
-                target="_blank" 
+            {socialLinks.filter(link => link.name !== 'Linktree').map(link => (
+              <a
+                key={link.name}
+                href={link.href}
+                target="_blank"
                 rel="noopener noreferrer"
                 aria-label={link.name}
                 className="social-icon-link"
               >
                 {link.icon}
+              </a>
+            ))}
+          </div>
+          <div className="linktree-container">
+            {socialLinks.filter(link => link.name === 'Linktree').map(link => (
+              <a
+                key={link.name}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={link.name}
+                className="social-icon-link linktree-link"
+              >
+                Linktree
               </a>
             ))}
           </div>
