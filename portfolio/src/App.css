@@ -169,6 +169,7 @@ main p {
   aspect-ratio: 1 / 1; /* Creates a square */
   background-color: #1B2238; /* Slightly lighter blue charcoal */
   border-radius: 15px;
+  box-shadow: 12px 10px 20px #00F5D4;
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
@@ -179,8 +180,8 @@ main p {
 }
 
 .project-card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+  transform: scale(1.15);
+  box-shadow: 15px 10px 20px rgba(215, 55, 240, 0.5);
   z-index: 10;
 }
 
