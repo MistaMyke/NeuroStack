@@ -1,9 +1,12 @@
 // src/App.jsx
 // Import necessary hooks from React and the main stylesheet.
 import { useState, useEffect, useRef } from 'react';
+import { Routes, Route, useParams, Link } from 'react-router-dom';
 import './App.css';
 // Import the profile picture image.
 import profilePic from './assets/MistaMyke.png';
+import headshot from './assets/HeadShot.png';
+
 
 // SVG Icon Components
 const EmailIcon = () => (
@@ -39,6 +42,9 @@ const InstagramIcon = () => (
 
 
 // The main App component.
+
+import ProjectPage from './ProjectPage';
+
 function App() {
   // State to manage the visibility of the dropdown menu.
   const [menuOpen, setMenuOpen] = useState(false);
@@ -169,72 +175,112 @@ function App() {
         </div>
       </header>
 
-      {/* Main content */}
-      <main>
-        <section id="welcome">
-          <h2>Welcome to My Portfolio!</h2>
-          <p>
-            This space captures my journey as a creator and problem-solver in the tech world. What started as learning the nuts and bolts of code has grown into full-stack projects, business ideas, and creative experiments that push me to keep building and refining.
-              </p>
-              <p>
-            I see this portfolio as both a showcase and a snapshot in time — a place where my skills, projects, and entrepreneurial path all come together. As I grow, this site grows with me, reflecting not just what I can do, but where I’m going.
-          </p>
-        </section>
-
-        {/* Projects Section */}
-        <section id="projects" style={{ minHeight: '150px', paddingTop: '1rem' }}>
-          <h2>Projects</h2>
-          <div className="projects-grid">
-            {Array.from({ length: 6 }).map((_, index) => (
-              <div key={index} className="project-card">
-                <div className="project-card-content">
-                  <h3>Project {index + 1}</h3>
-                  <p>A brief description of the project goes here.</p>
+      {/* Main content is now managed by Routes */}
+      <Routes>
+        <Route path="/" element={
+          <main>
+            <section id="welcome">
+              <div className="hero-container">
+                <div className="hero-left">
+                  <h2>Welcome to My Portfolio!</h2>
+                  <p>
+                    This space captures my journey as a creator and problem-solver in the tech world. What started as learning the nuts and bolts of code has grown into full-stack projects, business ideas, and creative experiments that push me to keep building and refining.
+                  </p>
+                  <p>
+                    I see this portfolio as both a showcase and a snapshot in time — a place where my skills, projects, and entrepreneurial path all come together. As I grow, this site grows with me, reflecting not just what I can do, but where I’m going.
+                  </p>
+                </div>
+                <div className="hero-right">
+                  <div className="hero-image-wrapper"><img src={headshot} alt="MistaMyke Headshot" className="hero-image" /></div>
                 </div>
               </div>
-            ))}
-          </div>
-        </section>
+            </section>
 
-        <section id="about" style={{ minHeight: '150px', paddingTop: '1rem' }}>
-          <h2>About Me</h2>
-          <p>I’m an aspiring full-stack developer and tech enthusiast, exploring the world of coding, web development, and small-scale tech projects. My journey is all about learning by doing — building tools, experimenting with new technologies, and finding creative ways to solve problems.</p>
-          <p>Along the way, I’m also working on building IndigoShield Tech Services, a small tech and cybersecurity venture that helps individuals and small businesses improve their digital security and their online presence. This project gives me hands-on experience turning ideas into real solutions while continuing to grow my skills.</p>
-          <p>I’m still learning, but I enjoy taking on challenges, building things from scratch, and sharing my progress as I grow in this ever-evolving field.</p>
-        </section>
-        <section id="contact" className="contact-section">
-          <h2>Contact Me</h2>
-          <p>If you’d like to reach out, feel free to connect with me through any of the platforms below:</p>
-          <div className="social-icons">
-            {socialLinks.filter(link => link.name !== 'Linktree').map(link => (
-              <a
-                key={link.name}
-                href={link.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={link.name}
-                className="social-icon-link"
-              >
-                {link.icon}
-              </a>
-            ))}
-          </div>
-          <div className="linktree-container">
-            {socialLinks.filter(link => link.name === 'Linktree').map(link => (
-              <a
-                key={link.name}
-                href={link.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={link.name}
-                className="social-icon-link linktree-link"
-              >
-                Linktree
-              </a>
-            ))}
-          </div>
-        </section>
-      </main>
+            {/* Projects Section */}
+            <section id="projects" style={{ minHeight: '150px', paddingTop: '1rem' }}>
+              <h2>Projects</h2>
+              <div className="projects-grid">
+                {Array.from({ length: 6 }).map((_, index) => (
+                  <Link to={`/projects/project-${index + 1}`} key={index} className="project-card">
+                    <div className="project-card-content">
+                      <h3>Project {index + 1}</h3>
+                      <p>A brief description of the project goes here.</p>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </section>
+
+            <div className="section-divider"></div>
+
+            <section id="about">
+              <div className="about-container">
+                <div className="about-left">
+                  <h2>About Me</h2>
+                  <p>I’m a builder at heart—coding, shipping small tools, and turning messy problems into cleaner systems. I learn by doing and share the process so others can steal the good parts.</p>
+                  <p>By day I’m rebuilding IndigoShield Tech (human-first IT + security). Nights and weekends I’m shaping LifeOps/AiDHD, a neurodivergent-friendly productivity system.</p>
+                  <p>Still learning, still shipping—one small win at a time.</p>
+                </div>
+                <div className="about-right">
+                  <div className="callout">
+                    <div>
+                      <h3>Core Stack</h3>
+                      <p>React · Vite · Node · Python (learning FastAPI)</p>
+                    </div>
+                  </div>
+                  <div className="callout">
+                    <div>
+                      <h3>Strengths</h3>
+                      <p>Problem-solving, documentation, security basics</p>
+                    </div>
+                  </div>
+                  <div className="callout">
+                    <div>
+                      <h3>Focus Now</h3>
+                      <p>Portfolio polish, CPA prototype, AiDHD docs</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <section id="contact">
+              <div className="contact-panel">
+                <h2>Contact Me</h2>
+                <p>If you’d like to reach out, feel free to connect with me through any of the platforms below:</p>
+                <div className="social-icons">
+                  {socialLinks.filter(link => link.name !== 'Linktree').map(link => (
+                    <a
+                      key={link.name}
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={link.name}
+                      className="social-icon-link"
+                    >
+                      {link.icon}
+                    </a>
+                  ))}
+                </div>
+                <div className="linktree-container">
+                  {socialLinks.filter(link => link.name === 'Linktree').map(link => (
+                    <a
+                      key={link.name}
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={link.name}
+                      className="linktree-link"
+                    >
+                      Linktree
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </section>
+          </main>
+        } />
+        <Route path="/projects/:projectId" element={<ProjectPage />} />
+      </Routes>
     </div>
   );
 }
