@@ -32,19 +32,27 @@ export default function ProjectPage() {
         </div>
       </section>
 
+      <div className="section-divider"></div>
+
       {/* Key Features */}
       <section className="project-section">
         <h2>Key Features</h2>
         <div className="features-grid">
           {project.features.map((feature, index) => (
             <div key={index} className="feature-card">
-              <div className="feature-image-placeholder"></div>
+              {feature.image ? (
+                <img src={feature.image} alt={feature.title} className="feature-image" />
+              ) : (
+                <div className="feature-image-placeholder"></div>
+              )}
               <h3>{feature.title}</h3>
               <p>{feature.description}</p>
             </div>
           ))}
         </div>
       </section>
+
+      <div className="section-divider"></div>
 
       {/* Tech Stack */}
       <section className="project-section">
@@ -58,6 +66,8 @@ export default function ProjectPage() {
           ))}
         </div>
       </section>
+
+      <div className="section-divider"></div>
 
       {/* Challenges and Lessons Learned */}
       <section className="project-section">

@@ -28,3 +28,6 @@ Thumbs.db
 build/
 out/
 
+# Large Assets
+*.mp4
+*.gif

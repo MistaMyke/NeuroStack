@@ -41,6 +41,8 @@ const InstagramIcon = () => (
 
 
 
+import { projectsData } from './projectsData';
+
 // The main App component.
 
 import ProjectPage from './ProjectPage';
@@ -200,11 +202,11 @@ function App() {
             <section id="projects" style={{ minHeight: '150px', paddingTop: '1rem' }}>
               <h2>Projects</h2>
               <div className="projects-grid">
-                {Array.from({ length: 6 }).map((_, index) => (
-                  <Link to={`/projects/project-${index + 1}`} key={index} className="project-card">
+                {projectsData.map((project, index) => (
+                  <Link to={`/projects/${project.id}`} key={project.id} className={`project-card ${index === 0 ? 'project-card-featured' : ''}`} style={{ backgroundImage: `url(${project.cardImage})` }}>
                     <div className="project-card-content">
-                      <h3>Project {index + 1}</h3>
-                      <p>A brief description of the project goes here.</p>
+                      <h3>{project.title}</h3>
+                      <p>{project.shortDescription}</p>
                     </div>
                   </Link>
                 ))}
