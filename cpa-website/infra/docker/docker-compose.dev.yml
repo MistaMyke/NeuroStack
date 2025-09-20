@@ -1,0 +1,40 @@
+services:
+  backend:
+    build:
+      context: ../..
+      dockerfile: infra/docker/Dockerfile.api
+    working_dir: /workspace
+    volumes:
+      - ../..:/workspace:cached
+      - pnpm-store:/pnpm-store
+      - backend-node-modules:/workspace/node_modules
+    environment:
+      NODE_ENV: development
+      PORT: 4000
+      PNPM_HOME: /pnpm
+      PNPM_STORE_PATH: /pnpm-store
+    ports:
+      - '4001:4000'
+  frontend:
+    build:
+      context: ../..
+      dockerfile: infra/docker/Dockerfile.frontend
+    working_dir: /workspace
+    volumes:
+      - ../..:/workspace:cached
+      - pnpm-store:/pnpm-store
+      - frontend-node-modules:/workspace/node_modules
+    environment:
+      NODE_ENV: development
+      NEXT_PUBLIC_API_URL: http://backend:4000
+      PNPM_HOME: /pnpm
+      PNPM_STORE_PATH: /pnpm-store
+    ports:
+      - '3000:3000'
+    depends_on:
+      backend:
+        condition: service_started
+volumes:
+  pnpm-store:
+  backend-node-modules:
+  frontend-node-modules:

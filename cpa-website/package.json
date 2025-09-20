@@ -1,0 +1,14 @@
+{
+  "name": "cpa-website",
+  "version": "0.1.0",
+  "private": true,
+  "packageManager": "pnpm@9.9.0",
+  "scripts": {
+    "dev": "pnpm --parallel --stream --filter @cpa/frontend --filter @cpa/backend run dev",
+    "dev:frontend": "pnpm --filter @cpa/frontend run dev",
+    "dev:backend": "pnpm --filter @cpa/backend run dev",
+    "build": "pnpm --recursive run build",
+    "test": "pnpm --filter @cpa/backend run test",
+    "lint": "pnpm --recursive run lint"
+  }
+}

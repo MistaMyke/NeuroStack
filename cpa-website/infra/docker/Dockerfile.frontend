@@ -1,0 +1,23 @@
+FROM node:20-alpine
+
+ENV PNPM_HOME=/pnpm
+ENV PATH="$PNPM_HOME:$PATH"
+
+RUN corepack enable \
+  && apk add --no-cache bash libc6-compat
+
+WORKDIR /workspace
+
+COPY pnpm-workspace.yaml ./
+COPY package.json ./
+COPY pnpm-lock.yaml ./
+COPY apps/backend/package.json apps/backend/
+COPY apps/frontend/package.json apps/frontend/
+COPY packages/eslint-config/package.json packages/eslint-config/
+COPY packages/shared-types/package.json packages/shared-types/
+COPY packages/ui-library/package.json packages/ui-library/
+COPY infra/docker/entrypoints/dev.sh /usr/local/bin/dev-entrypoint
+RUN chmod +x /usr/local/bin/dev-entrypoint
+
+ENTRYPOINT ["/usr/local/bin/dev-entrypoint"]
+CMD ["pnpm", "--filter", "@cpa/frontend", "run", "dev"]
