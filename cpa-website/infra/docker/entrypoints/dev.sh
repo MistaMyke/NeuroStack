@@ -11,4 +11,6 @@ else
   pnpm install
 fi
 
+pnpm --filter @cpa/backend run prisma:generate >/dev/null 2>&1 || true
+
 exec "$@"

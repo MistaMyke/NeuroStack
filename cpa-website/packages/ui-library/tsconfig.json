@@ -4,8 +4,16 @@
     "outDir": "dist",
     "rootDir": "src",
     "jsx": "react-jsx",
-    "declaration": true
+    "declaration": true,
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "noEmit": false
   },
-  "include": ["src/**/*.{ts,tsx}"],
-  "exclude": ["dist"]
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx"
+  ],
+  "exclude": [
+    "dist"
+  ]
 }

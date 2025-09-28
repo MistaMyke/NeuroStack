@@ -1,6 +1,6 @@
 import request from 'supertest';
 
-import app from '../src/index.js';
+import app from '../src/index';
 
 describe('GET /health', () => {
   it('returns ok status payload', async () => {

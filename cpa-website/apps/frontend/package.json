@@ -9,6 +9,8 @@
     "lint": "node ./node_modules/next/dist/bin/next lint"
   },
   "dependencies": {
+    "@cpa/shared-types": "workspace:*",
+    "@cpa/ui-library": "workspace:*",
     "next": "14.2.4",
     "react": "18.3.1",
     "react-dom": "18.3.1"

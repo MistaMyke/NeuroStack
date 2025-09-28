@@ -1,0 +1,38 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model ContactRequest {
+  id           String   @id @default(cuid())
+  name         String
+  email        String
+  phone        String?  @db.VarChar(40)
+  reason       String?  @db.VarChar(120)
+  message      String
+  status       ContactStatus @default(RECEIVED)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  notes        ContactRequestNote[]
+}
+
+enum ContactStatus {
+  RECEIVED
+  IN_PROGRESS
+  COMPLETED
+  ARCHIVED
+}
+
+model ContactRequestNote {
+  id                String   @id @default(cuid())
+  contactRequestId  String
+  staffEmail        String
+  body              String
+  createdAt         DateTime @default(now())
+
+  contactRequest ContactRequest @relation(fields: [contactRequestId], references: [id], onDelete: Cascade)
+}

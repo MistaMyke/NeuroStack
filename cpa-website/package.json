@@ -9,6 +9,7 @@
     "dev:backend": "pnpm --filter @cpa/backend run dev",
     "build": "pnpm --recursive run build",
     "test": "pnpm --filter @cpa/backend run test",
-    "lint": "pnpm --recursive run lint"
+    "lint": "pnpm --recursive run lint",
+    "clean": "pnpm --recursive exec -- sh -lc 'rm -rf .next dist build coverage'"
   }
 }
