@@ -1,4 +1,8 @@
 {
+  "scripts": {
+    "n8n:up": "bash infra/n8n/start.sh",
+    "n8n:down": "bash infra/n8n/stop.sh"
+  },
   "dependencies": {
     "react-router-dom": "^7.9.1"
   }
