@@ -5,12 +5,18 @@ dist/
 *.log
 npm-debug.log*
 
+# Next.js / Vite
+.next/
+.vite/
+
 # Python / Backend
 __pycache__/
 *.py[cod]
 env/
 venv/
 *.env
+!.env.example
+!**/.env.example
 
 # Docker
 docker-compose.override.yml
@@ -31,3 +37,13 @@ out/
 # Large Assets
 *.mp4
 *.gif
+
+# Databases / Local data
+*.sqlite
+*.sqlite3
+infra/n8n/data/
+infra/n8n/postgres-data/
+infra/n8n/redis-data/
+
+# Prisma generated
+.prisma/
