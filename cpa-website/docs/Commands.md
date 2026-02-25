@@ -1,3 +1,7 @@
+# Dev stack (Docker)
+docker compose -f infra/docker/docker-compose.dev.yml up --build
+docker compose -f infra/docker/docker-compose.dev.yml down
+
 # Check last 5 Email contact submitions
 
 # docker compose -f infra/docker/docker-compose.dev.yml exec backend \

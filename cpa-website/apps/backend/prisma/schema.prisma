@@ -27,6 +27,30 @@ enum ContactStatus {
   ARCHIVED
 }
 
+enum UserRole {
+  CLIENT
+  STAFF
+}
+
+enum EngagementStatus {
+  RECEIVED
+  REVIEWING
+  READY_FOR_SIGNATURE
+  FILED
+}
+
+enum DocumentStatus {
+  PENDING
+  AVAILABLE
+  QUARANTINED
+}
+
+enum PaymentStatus {
+  PENDING
+  PAID
+  FAILED
+}
+
 model ContactRequestNote {
   id                String   @id @default(cuid())
   contactRequestId  String
@@ -35,4 +59,63 @@ model ContactRequestNote {
   createdAt         DateTime @default(now())
 
   contactRequest ContactRequest @relation(fields: [contactRequestId], references: [id], onDelete: Cascade)
+}
+
+model User {
+  id         String   @id @default(cuid())
+  email      String   @unique
+  name       String
+  role       UserRole
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  engagements        Engagement[]  @relation("ClientEngagements")
+  uploadedDocuments  Document[]    @relation("UploaderDocuments")
+  payments           PaymentRecord[]
+}
+
+model Engagement {
+  id        String   @id @default(cuid())
+  clientId  String
+  status    EngagementStatus @default(RECEIVED)
+  taxYear   Int?
+  notes     String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  client    User       @relation("ClientEngagements", fields: [clientId], references: [id], onDelete: Cascade)
+  documents Document[]
+  payments  PaymentRecord[]
+}
+
+model Document {
+  id           String   @id @default(cuid())
+  engagementId String
+  uploaderId   String
+  filename     String
+  mimeType     String
+  size         Int
+  storageKey   String
+  status       DocumentStatus @default(PENDING)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  engagement Engagement @relation(fields: [engagementId], references: [id], onDelete: Cascade)
+  uploader   User       @relation("UploaderDocuments", fields: [uploaderId], references: [id], onDelete: Cascade)
+}
+
+model PaymentRecord {
+  id          String   @id @default(cuid())
+  clientId    String
+  engagementId String?
+  provider    String
+  amount      Int
+  currency    String  @default("USD")
+  status      PaymentStatus @default(PENDING)
+  externalRef String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  client     User        @relation(fields: [clientId], references: [id], onDelete: Cascade)
+  engagement Engagement? @relation(fields: [engagementId], references: [id], onDelete: SetNull)
 }

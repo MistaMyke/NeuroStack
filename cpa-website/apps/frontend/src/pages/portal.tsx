@@ -10,6 +10,8 @@ const plannedFeatures = [
   'AI chat to answer common questions and outline required documents.',
 ];
 
+const isDemoEnabled = process.env.NEXT_PUBLIC_DEMO_MODE === 'true';
+
 const PortalPage = (): JSX.Element => {
   return (
     <>
@@ -38,6 +40,14 @@ const PortalPage = (): JSX.Element => {
                 >
                   Request access
                 </a>
+                {isDemoEnabled ? (
+                  <a
+                    href="/demo"
+                    className="rounded-md border border-slate-300 px-5 py-2 text-sm font-semibold text-slate-700 transition hover:bg-slate-100 focus:outline-none focus-visible:ring focus-visible:ring-slate-300"
+                  >
+                    Try demo
+                  </a>
+                ) : null}
               </div>
             </div>
             <div className="mt-12 grid gap-8 lg:grid-cols-2">

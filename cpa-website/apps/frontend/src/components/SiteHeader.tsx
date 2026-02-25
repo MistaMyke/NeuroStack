@@ -5,6 +5,7 @@ import { firmInfo, navigationLinks } from '../lib/siteConfig';
 
 export const SiteHeader = (): JSX.Element => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const showDemo = process.env.NEXT_PUBLIC_DEMO_MODE === 'true';
 
   return (
     <header className="border-b border-brand-primary/15 bg-white/95 backdrop-blur">
@@ -33,10 +34,15 @@ export const SiteHeader = (): JSX.Element => {
                 {link.label}
               </Link>
             ))}
+            {showDemo ? (
+              <Link href="/demo" className="transition hover:text-blue-600">
+                Demo
+              </Link>
+            ) : null}
           </nav>
           <a
             href={firmInfo.phoneHref}
-            className="rounded-full bg-gradient-to-r from-brand-primary to-brand-accent px-4 py-2 text-sm font-semibold text-white shadow-brand transition hover:from-brand-accent hover:to-brand-primary focus:outline-none focus-visible:ring focus-visible:ring-brand-accent/40"
+            className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-brand-primary to-brand-accent px-4 py-2 text-center text-sm font-semibold text-white shadow-brand transition hover:from-brand-accent hover:to-brand-primary focus:outline-none focus-visible:ring focus-visible:ring-brand-accent/40"
           >
             Call {firmInfo.phone}
           </a>
@@ -55,6 +61,15 @@ export const SiteHeader = (): JSX.Element => {
                 {link.label}
               </Link>
             ))}
+            {showDemo ? (
+              <Link
+                href="/demo"
+                className="rounded-md px-3 py-2 transition hover:bg-brand-primary/10 hover:text-brand-primary"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Demo
+              </Link>
+            ) : null}
             <a
               href={firmInfo.phoneHref}
               className="rounded-md bg-gradient-to-r from-brand-primary to-brand-accent px-3 py-2 text-center font-semibold text-white shadow-brand"

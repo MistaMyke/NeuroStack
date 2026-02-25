@@ -1,9 +1,15 @@
 import { type PropsWithChildren } from 'react';
+import { useRouter } from 'next/router';
 
 import { SiteFooter } from './SiteFooter';
 import { SiteHeader } from './SiteHeader';
+import { ChatWidget } from './ChatWidget';
 
 export const PageLayout = ({ children }: PropsWithChildren): JSX.Element => {
+  const router = useRouter();
+  const isStaffRoute = router.pathname.startsWith('/staff');
+  const channel = router.pathname === '/portal' ? 'portal' : 'public';
+
   return (
     <div className="flex min-h-screen flex-col bg-brand-light text-brand-slate">
       <a
@@ -17,6 +23,7 @@ export const PageLayout = ({ children }: PropsWithChildren): JSX.Element => {
         {children}
       </main>
       <SiteFooter />
+      {isStaffRoute ? null : <ChatWidget channel={channel} />}
     </div>
   );
 };
